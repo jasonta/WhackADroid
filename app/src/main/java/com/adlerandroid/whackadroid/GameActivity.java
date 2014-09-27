@@ -35,8 +35,6 @@ public class GameActivity extends ActionBarActivity {
     private TextView mScoreText;
     private int mScore;
     private Random mRandom = new Random(System.currentTimeMillis());
-//    private AddDroidsRunnable mAddDroidsRunnable = new AddDroidsRunnable();
-//    private RemoveDroidsRunnable mRemoveDroidsRunnable = new RemoveDroidsRunnable();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,12 +65,6 @@ public class GameActivity extends ActionBarActivity {
 
         mUpdateDroidsThread = new UpdateDroidsThread();
         mUpdateDroidsThread.start();
-
-//        // start loop to have droids pop up at random times
-//        mAddDroidsRunnable.resume();
-//
-//        // start loop to clear droids that have been visible for too long
-//        mRemoveDroidsRunnable.resume();
     }
 
     @Override
@@ -80,9 +72,6 @@ public class GameActivity extends ActionBarActivity {
         super.onPause();
 
         mUpdateDroidsThread.pause();
-
-//        mAddDroidsRunnable.pause();
-//        mRemoveDroidsRunnable.pause();
     }
 
     @Override
@@ -177,68 +166,6 @@ public class GameActivity extends ActionBarActivity {
             }
         };
     }
-
-    /**
-     * Add droids to random locations on a random schedule.
-     */
-//    private class AddDroidsRunnable implements Runnable {
-//        private boolean mIsPaused;
-//
-//        public AddDroidsRunnable() {
-//            mIsPaused = false;
-//        }
-//
-//        @Override
-//        public void run() {
-//            if (mAdapter != null && !mIsPaused) {
-//                // display a random new droid
-//                mAdapter.addNewDroid();
-//
-//                // repeat at a pseudo-random pace
-//                final long delay = BASE_DELAY + mRandom.nextInt(mDelay);
-//                Log.v(TAG, "==> next delay = " + delay);
-//                mHandler.postDelayed(this, delay);
-//            }
-//        }
-//
-//        public synchronized void pause() {
-//            mIsPaused = true;
-//        }
-//
-//        public synchronized void resume() {
-//            mIsPaused = false;
-//
-//            mHandler.postDelayed(this, BASE_DELAY);
-//        }
-//    }
-
-    /**
-     * Remove elapsed droids from grid in background thread.
-     */
-//    private class RemoveDroidsRunnable implements Runnable {
-//        private boolean mIsPaused;
-//
-//        @Override
-//        public void run() {
-//            if (mAdapter != null && !mIsPaused) {
-//                // remove droids that have been visible for a while
-//                mAdapter.removeDroids();
-//
-//                // repeat at a reasonable pace to clean up elapsed droids on a timely basis
-//                mHandler.postDelayed(this, 500);
-//            }
-//        }
-//
-//        public synchronized void pause() {
-//            mIsPaused = true;
-//        }
-//
-//        public void resume() {
-//            mIsPaused = false;
-//
-//            mHandler.postDelayed(this, 500);
-//        }
-//    }
 
     /**
      * Container for a grid cell. Each cell is either empty or has a droid. If not empty, the
