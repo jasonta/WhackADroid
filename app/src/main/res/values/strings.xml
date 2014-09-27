@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WhackADroid</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="startGame">Start Game</string>
+
+    <string-array name="difficulties">
+        <item>Easy</item>
+        <item>Normal</item>
+        <item>Hard</item>
+    </string-array>
+
+    <string name="title_activity_game">GameActivity</string>
+    <string name="scoreFormat">Score: %d</string>
+
+</resources>
